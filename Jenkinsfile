@@ -24,8 +24,8 @@ node {
         }
 
         stage('Deploy') {
-            docker.image('python:2-alpine').inside {
-                sh 'pip install pyinstaller && pyinstaller --onefile sources/add2vals.py'
+            docker.image('cdrx/pyinstaller-linux:python2').inside {
+                sh 'pyinstaller --onefile sources/add2vals.py'
             }
         }
     } catch (Exception err) {
