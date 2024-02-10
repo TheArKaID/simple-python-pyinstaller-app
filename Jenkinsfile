@@ -25,6 +25,7 @@ node {
 
         stage('Deploy') {
             sh 'docker run -v $(pwd):/src:rw,z cdrx/pyinstaller-linux:python3 "pyinstaller --noconfirm -y sources/add2vals.py"'
+            sh 'sleep 60'
         }
     } catch (Exception err) {
         throw err
